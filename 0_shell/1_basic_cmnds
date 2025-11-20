@@ -1,0 +1,54 @@
+*pwd -> current working directory
+*ls dir_name -> will list the contents of that file
+
+An absolute path is like a latitude and longitude: it has the same value no matter where you are. A relative path, on the other hand, specifies a location starting from where you are: it's like saying "20 kilometers north".
+
+As examples:
+
+    If you are in the directory /home/repl, the relative path seasonal specifies the same directory as the absolute path /home/repl/seasonal.
+    If you are in the directory /home/repl/seasonal, the relative path winter.csv specifies the same file as the absolute path /home/repl/seasonal/winter.csv.
+
+The shell decides if a path is absolute or relative by looking at its first character: If it begins with /, it is absolute. If it does not begin with /, it is relative.
+
+---------------------------------------------------------------------------------
+*cd
+
+A single dot on its own, ., always means "the current directory", so ls on its own and ls . do the same thing, while cd . has no effect (because it moves you into the directory you're currently in).
+
+One final special path is ~ (the tilde character), which means "your home directory", such as /home/repl. No matter where you are, ls ~ will always list the contents of your home directory, and cd ~ will always take you home.
+---------------------------------------------------------------------------------
+*cp
+
+You will often want to copy files, move them into other directories to organize them, or rename them. One command to do this is cp, which is short for "copy". If original.txt is an existing file, then:
+
+cp original.txt duplicate.txt
+
+creates a copy of original.txt called duplicate.txt. If there already was a file called duplicate.txt, it is overwritten. If the last parameter to cp is an existing directory, then a command like:
+
+cp seasonal/autumn.csv seasonal/winter.csv backup
+#copies all of the files into that directory.
+---------------------------------------------------------------------------------
+*mv
+
+mv autumn.csv winter.csv ..
+
+moves the files autumn.csv and winter.csv from the current working directory up one level to its parent directory (because .. always refers to the directory above your current location).
+
+mv can also be used to rename files. If you run:
+
+mv course.txt old-course.txt
+
+---------------------------------------------------------------------------------
+*rm
+
+rm seasonal/summer.csv
+rmdir dir_nama
+
+---------------------------------------------------------------------------------
+*/tmp
+
+You will often create intermediate files when analyzing data. Rather than storing them in your home directory, you can put them in /tmp, which is where people and programs often keep files they only need briefly. (Note that /tmp is immediately below the root directory /, not below your home directory.) This wrap-up exercise will show you how to do that.
+
+
+
+
