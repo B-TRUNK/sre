@@ -1,0 +1,74 @@
+*grep
+The grep command is used to search for text patterns within files.
+
+grep 'pattern' filename:
+grep 'shell' file.txt
+
+The grep command has options to change how it works:
+
+    -i - Search ignoring case differences (uppercase or lowercase)
+    -r - Search through all files in a directory and its subdirectories
+    -v - Find lines that do not match the pattern
+
+- grep with Regular Expressions
+    Regular expressions allow you to search for complex patterns.
+
+    For example, grep '^[A-Za-z]' file.txt finds lines starting with a letter.
+    Example: Regular Expressions
+
+    grep '^[A-Za-z]' my_file.txt
+
+-------------------------------------------------------------------------------------------
+*awk
+
+The awk command is powerful for pattern scanning and processing language.
+For example, you can use it to extract specific fields from a file or perform calculations.
+
+All examples below use the example_data.csv file:
+
+id,Created,Amount,Currency,Description,Customer
+1,2024-11-01,100,USD,Payment,John Doe
+2,2024-11-02,200,EUR,Refund,Jane Smith
+3,2024-11-03,150,USD,Purchase,Emily Davis
+4,2024-11-04,175,GBP,Subscription,Michael Brown
+
+To print the first column of a file, use awk -F"," '{print $1}' filename:
+Example: Print First Column
+
+awk -F"," '{print $1}' example_data.csv
+# Output:
+# id
+# 1
+# 2
+# 3
+# 4
+
+The awk command has options to change how it works:
+
+    -F - Set what separates the data fields
+    -v - Set a variable to be used in the script
+    -f - Use a file as the source of the awk program
+
+- The -v option lets you assign a variable to be used within the awk script.
+This is helpful for passing external values into the script.
+Example: Assign Variable
+
+awk -v var="Amount:" '{print var, $3}' example_data.csv
+# Output:
+# Amount: Amount
+# Amount: 100
+# Amount: 200
+# Amount: 150
+# Amount: 175
+
+- Using awk for Data Manipulation
+Awk can perform complex data manipulation tasks.
+
+For example, awk '{sum += $3} END {print sum}' example_data.csv calculates the sum of the Amount column.
+Example: Data Manipulation
+
+awk -F"," '{sum += $3} END {print sum}' example_data.csv
+# Output:
+# 625
+
+-------------------------------------------------------------------------------------------
