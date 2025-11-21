@@ -1,0 +1,222 @@
+System administrators use Bash to:
+
+    Automate tasks
+    System operations
+    Process data
+
+Developers use Bash for:
+
+    Build automation
+    Testing
+    Deployment
+    Data processing and manipulation
+
+---------------------------------------------------------------------------------
+*echo "Hello, Bash!"
+The echo command has several options to customize its output:
+
+    -n - Don't add a new line at the end
+    -e - Allow special characters like \n for new lines
+    -E - Don't allow special characters (default)
+
+---------------------------------------------------------------------------------
+*pwd -> current working directory
+
+The pwd command supports a few options to customize its output:
+
+    -L: Display the logical current working directory
+    -P: Display the physical current working directory (without symbolic links)
+
+----------------------------------------------------------------------------------
+*ls dir_name -> will list the contents of that file
+
+The ls command has a variety of options to customize its output:
+
+    -l - Long listing format
+    -a - Include hidden files
+    -h - Human-readable sizes
+    -t - Sort by modification time
+    -r - Reverse order while sorting
+    -R - List subdirectories recursively
+    -S - Sort by file size
+    -1 - List one file per line
+    -d - List directories themselves, not their contents
+    -F - Append indicator (one of */=@|) to entries
+
+ls -lhSr -> mod + readable sizes + Ordered + order-reversed
+
+The -d option lists directories themselves rather than their contents.
+
+This is useful for seeing directory names without contents.
+Example: Directories Only
+
+ls -d */
+images//  myfolder//
+
+
+An absolute path is like a latitude and longitude: it has the same value no matter where you are. A relative path, on the other hand, specifies a location starting from where you are: it's like saying "20 kilometers north".
+
+As examples:
+
+    If you are in the directory /home/repl, the relative path seasonal specifies the same directory as the absolute path /home/repl/seasonal.
+    If you are in the directory /home/repl/seasonal, the relative path winter.csv specifies the same file as the absolute path /home/repl/seasonal/winter.csv.
+
+The shell decides if a path is absolute or relative by looking at its first character: If it begins with /, it is absolute. If it does not begin with /, it is relative.
+
+---------------------------------------------------------------------------------
+*cd
+
+The cd command supports several useful options for navigating directories:
+
+    cd ..: Move up one directory level
+    cd ~: Change to the home directory
+    cd -: Switch to the previous directory
+    cd /: Change to the root directory
+
+
+    *A single dot on its own, ., always means "the current directory", so ls on its own and ls . do the same thing, while cd . has no effect (because it moves you into the directory you're currently in).
+    One final special path is ~ (the tilde character), which means "your home directory", such as /home/repl. No matter where you are, ls ~ will always list the contents of your home directory, and cd ~ will always take you home.
+----------------------------------------------------------------------------------
+*cat
+
+The cat command has options to change how it shows text:
+
+    -n - Add numbers to each line
+    -b - Add numbers only to lines with text
+    -s - Remove extra empty lines
+    -v - Show non-printing characters (except for tabs and end of line)
+
+    - Concatenate Two Files
+        cat file1.txt file2.txt > combined.txt
+        This command takes the contents of file1.txt and file2.txt and writes them into combined.txt.
+
+    - Using cat with Piping
+        The cat command is often used with piping to send the content of files to other commands.
+        This is useful for processing text data.
+
+    - Using cat with Piping
+        The cat command is often used with piping to send the content of files to other commands.
+        This is useful for processing text data.
+        Example
+
+        cat my_file.txt | grep "shells"
+        Understanding Shells
+        There are different types of shells. Bash (Bourne Again SHell)
+
+---------------------------------------------------------------------------------
+*cp
+
+You will often want to copy files, move them into other directories to organize them, or rename them. One command to do this is cp, which is short for "copy". If original.txt is an existing file, then:
+
+cp original.txt duplicate.txt
+
+creates a copy of original.txt called duplicate.txt. If there already was a file called duplicate.txt, it is overwritten. If the last parameter to cp is an existing directory, then a command like:
+
+cp seasonal/autumn.csv seasonal/winter.csv backup
+#copies all of the files into that directory.
+
+The cp command has options to change how it works:
+
+    -r - Copy all files and folders inside a directory
+    -i - Ask before replacing files
+    -u - Copy only if the source is newer
+    -v - Verbose mode, show files being copied
+
+---------------------------------------------------------------------------------
+*mv
+
+mv autumn.csv winter.csv ..
+
+moves the files autumn.csv and winter.csv from the current working directory up one level to its parent directory (because .. always refers to the directory above your current location).
+
+mv can also be used to rename files. If you run:
+
+mv course.txt old-course.txt
+
+The mv command has several options to customize its behavior:
+
+    -i - Ask before replacing files
+    -u - Move only if the source is newer
+    -v - Verbose mode, show files being moved
+
+---------------------------------------------------------------------------------
+*rm
+
+rm seasonal/summer.csv
+rmdir dir_nama
+
+The rm command has options to change how it works:
+
+    -r - Delete a folder and everything inside it
+    -i - Ask before deleting each file
+    -f - Force delete without asking
+    -v - Verbose mode, show files being removed
+
+---------------------------------------------------------------------------------
+*touch
+
+The touch command has options to change how it works:
+
+    -a - Update only when the file was last read
+    -m - Update only when the file was last changed
+    -t - Set the timestamp to a specific time
+    -c - Do not create any files
+
+---------------------------------------------------------------------------------
+*mkdir
+
+The mkdir command has several options to customize its behavior:
+
+    -p - Create parent directories as needed
+    -v - Show a message for each created directory
+    -m - Set file mode (permissions)
+
+    mkdir -m 755 new_directory
+
+----------------------------------------------------------------------------------
+*man
+
+The man command is commonly used to:
+
+    Learn about command options and usage.
+    Understand command syntax and examples.
+    Access detailed documentation for troubleshooting.
+
+----------------------------------------------------------------------------------
+*alias
+
+Aliases in Bash allow you to create shortcuts for long or frequently used commands.
+This makes it easier to execute complex commands with a simple keyword.
+
+alias ll='ls -la'
+alias gs='git status'
+
+- Viewing Aliases
+    alias
+    alias ll='ls -l'
+    alias gs='git status'
+
+- Removing an Alias
+    unalias gs  
+
+- Creating Permanent Aliases
+
+    To make an alias permanent, add it to your ~/.bashrc or ~/.bash_profile file.
+    Example: Adding Permanent Alias - Open Editor
+    nano ~/.bashrc
+
+    Example: Adding Permanent Alias - Add Alias
+    alias ll='ls -la'
+
+    Example: Adding Permanent Alias - Save and Apply
+
+    source ~/.bashrc
+
+----------------------------------------------------------------------------------
+*/tmp
+
+You will often create intermediate files when analyzing data. Rather than storing them in your home directory, you can put them in /tmp, which is where people and programs often keep files they only need briefly. (Note that /tmp is immediately below the root directory /, not below your home directory.) This wrap-up exercise will show you how to do that.
+
+
+
+
