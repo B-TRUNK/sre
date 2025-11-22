@@ -72,3 +72,147 @@ awk -F"," '{sum += $3} END {print sum}' example_data.csv
 # 625
 
 -------------------------------------------------------------------------------------------
+*sed
+
+command is a stream editor used to perform basic text transformations on an input stream (a file or input from a pipeline).
+
+It's a powerful tool for making quick edits to files or streams of data.
+
+sed 's/old/new/' filename:
+Example: Replace Text
+
+sed 's/World/Bash/' example_text.txt
+Hello Bash
+Line 1
+Line 2
+
+The sed command has options to change how it works:
+
+    -i - Edit files directly without needing to save separately
+    -e - Add the script to the commands to be executed
+    -n - Don't automatically print lines
+    -r - Use extended regular expressions
+    -f - Add script from a file
+    -l - Specify line length for l command
+
+------------------------------------------------------------------------------------------
+*cut
+
+command is used to remove sections from each line of files.
+
+It's a useful tool for extracting specific fields of data from a file or output stream.
+
+All examples below use the example_data.txt file:
+
+Kai 	Refsnes	30,Norway
+Robin	Smith	25,Denmark
+Sienna	Davis	40,Germany
+
+Basic Usage
+
+To extract the first field of a file, use cut -f1 filename:
+Example: Extract First Field
+
+cut -f1 example_data.txt
+Kai
+Robin
+Sienna
+
+The cut command has options to change how it works:
+
+    -d - Choose what separates the fields
+    -f - Select specific fields to display
+    --complement - Show all fields except the selected ones
+
+------------------------------------------------------------------------------------------
+*sort
+
+Command
+
+The sort command is used to sort lines of text files.
+
+It's a handy tool for organizing data in files.
+
+The sort command has options to change how it works:
+
+    -r - Sort in reverse order
+    -n - Sort numbers correctly
+    -k - Sort by a specific column
+    -u - Remove duplicate lines
+    -t - Specify a delimiter for fields
+
+------------------------------------------------------------------------------------------
+*tail 
+
+command is used to display the last part of files.
+
+It's particularly useful for viewing the end of log files or any file that is being updated in real-time.
+
+The tail command has several options to customize its behavior:
+
+    -n [number]: Display the last [number] lines of the file.
+    -f: Follow the file as it grows, useful for monitoring log files.
+    -c [number]: Display the last [number] bytes of the file.
+    --pid=[pid]: Terminate after the process with the given PID dies.
+    --retry: Keep trying to open a file even if it is inaccessible.
+
+Use Cases
+
+Common scenarios where the tail command is beneficial include:
+
+    Monitoring server logs to detect issues in real-time.
+    Checking the latest entries in a continuously updated file.
+    Debugging applications by reviewing recent log entries.
+
+------------------------------------------------------------------------------------------
+*head
+
+command is used to display the first part of files.
+
+It's particularly useful for previewing the start of a file to understand its structure.
+
+Basic Usage
+
+The head command displays the first 10 lines of a file by default:
+
+The head command has several options used to customize its behavior:
+
+    -n [number]: Display the first [number] lines of the file.
+    -c [number]: Display the first [number] bytes of the file.
+
+Option: Multiple Files
+
+The head command can be used to display the beginning of multiple files. By default, it prints the file name as a header before the content of each file.
+Example: Display First 3 Lines of Multiple Files
+
+head -n 3 logfile.txt logfile2.txt
+==> logfile.txt <==
+line 01
+line 02
+line 03
+
+==> logfile2.txt <==
+line 01
+line 02
+line 03
+
+The -q option suppresses the printing of headers when multiple files are being processed. This is useful when you want to view the contents of multiple files without the file names being printed.
+Example: Suppress Headers
+
+head -q -n 3 logfile.txt logfile2.txt
+line 01
+line 02
+line 03
+line 01
+line 02
+line 03
+
+Common Uses
+
+The head command is commonly used to:
+
+    Preview the start of a file to understand its structure.
+    Quickly check the contents of a file without opening it fully.
+    Extract the header information from a data file.
+
+==========================================================================================
