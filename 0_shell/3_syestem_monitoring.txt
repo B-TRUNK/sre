@@ -1,0 +1,32 @@
+*ps
+
+command is used to report a snapshot of current processes.
+
+It's a useful tool for monitoring and managing processes on your system.
+
+All examples below use a hypothetical process list for demonstration:
+
+PID TTY          TIME CMD
+1234 pts/0    00:00:01 bash
+5678 pts/1    00:00:02 python
+9101 pts/2    00:00:03 node
+
+The ps command output consists of several columns, each representing different aspects of the system's processes:
+
+    PID: Process ID, a unique identifier for each process.
+    TTY: Terminal type associated with the process.
+    TIME: Total CPU time used by the process.
+    CMD: The command that started the process.
+
+The ps command has options to change how it works:
+
+    -e - Show all processes
+    -f - Show detailed information
+    -u - Show processes for a specific user
+    -a - Show all processes with a terminal
+    -x - Show processes without a terminal
+
+Combining Options
+
+Options can be combined to provide more detailed output. For example,
+ ps -ef shows all processes with detailed information.
