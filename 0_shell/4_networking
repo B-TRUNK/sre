@@ -1,0 +1,86 @@
+*ping
+
+command is used to send ICMP ECHO_REQUEST to network hosts.
+
+It's a useful tool for checking network connectivity and diagnosing network issues.
+
+Ex: ping google.com
+
+The ping command has options to change how it works:
+
+    -c - Send a specific number of ping requests
+    -i - Wait a specific number of seconds between sending each packet
+    -t - Set the IP Time to Live (TTL)
+    -q - Quiet output, only show summary
+    -s - Specify the number of data bytes to be sent
+
+Ex: ping -c 4 google.com
+
+    PING google.com (172.217.14.206): 56 data bytes
+    64 bytes from 172.217.14.206: icmp_seq=0 ttl=118 time=14.5 ms
+    64 bytes from 172.217.14.206: icmp_seq=1 ttl=118 time=14.2 ms
+    64 bytes from 172.217.14.206: icmp_seq=2 ttl=118 time=14.3 ms
+    64 bytes from 172.217.14.206: icmp_seq=3 ttl=118 time=14.4 ms
+
+    --- google.com ping statistics ---
+    4 packets transmitted, 4 packets received, 0.0% packet loss
+    round-trip min/avg/max/stddev = 14.2/14.3/14.5/0.1 ms
+
+
+Understanding Ping Results
+
+The output of the ping command provides several key pieces of information:
+
+    Bytes: The size of the ICMP packet sent
+    Time: The round-trip time it took for the packet to reach the host and return, measured in milliseconds
+    TTL (Time to Live): The remaining lifespan of the packet, which decreases by one for each hop
+    Packet Loss: The percentage of packets that were lost during transmission
+    Round-Trip Time Statistics: Includes minimum, average, maximum, and standard deviation of the round-trip times
+
+In the example above:
+
+    Each packet is 64 bytes
+    The round-trip times vary slightly, indicating network latency
+    The TTL value is 118, showing the packet's remaining lifespan
+    There is 0.0% packet loss, indicating a stable connection
+    The round-trip time statistics provide insights into network performance
+
+ping -i 2 google.com
+
+    PING google.com (172.217.14.206): 56 data bytes
+    64 bytes from 172.217.14.206: icmp_seq=0 ttl=118 time=14.5 ms
+    64 bytes from 172.217.14.206: icmp_seq=1 ttl=118 time=14.2 ms
+
+    --- google.com ping statistics ---
+    2 packets transmitted, 2 packets received, 0.0% packet loss
+    round-trip min/avg/max/stddev = 14.2/14.3/14.5/0.1 ms
+
+ping -t 64 google.com
+
+    PING google.com (172.217.14.206): 56 data bytes
+    64 bytes from 172.217.14.206: icmp_seq=0 ttl=64 time=14.5 ms
+
+    --- google.com ping statistics ---
+    1 packets transmitted, 1 packets received, 0.0% packet loss
+    round-trip min/avg/max/stddev = 14.5/14.5/14.5/0.0 ms
+
+ping -c 4 -q google.com
+
+    --- google.com ping statistics ---
+    4 packets transmitted, 4 packets received, 0.0% packet loss
+    round-trip min/avg/max/stddev = 14.2/14.3/14.5/0.1 ms
+
+ping -s 128 google.com
+
+    PING google.com (172.217.14.206): 128 data bytes
+    136 bytes from 172.217.14.206: icmp_seq=0 ttl=118 time=14.5 ms
+
+    --- google.com ping statistics ---
+    1 packets transmitted, 1 packets received, 0.0% packet loss
+    round-trip min/avg/max/stddev = 14.5/14.5/14.5/0.0 ms
+
+-----------------------------------------------------------------------------------------
+
+
+
+
