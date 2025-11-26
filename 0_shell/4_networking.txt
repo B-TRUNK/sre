@@ -80,6 +80,44 @@ ping -s 128 google.com
     round-trip min/avg/max/stddev = 14.5/14.5/14.5/0.0 ms
 
 -----------------------------------------------------------------------------------------
+*curl
+
+command is used to transfer data from or to a server using various protocols like HTTP, HTTPS, FTP, and more.
+
+It's a versatile tool for downloading files, testing APIs, and more.
+
+    curl url
+
+The curl command has options to change how it works:
+
+    -O - Save the file with the same name as the remote file
+    -L - Follow redirects
+    -I - Fetch the HTTP headers only
+    -d - Send data with POST request
+    -u - Specify user and password for server authentication
+
+curl -d "fname=John" https://www.example.com/action_page.php
+    Submitted Form Data
+    Your input was received as:
+
+    fname=John 
+
+curl -u user:password http://example.com/protected
+    Hello, this is a test file.
+    There are three lines here.
+    This is the last line.
+
+- Understanding curl Output
+
+The curl command output will vary depending on which options are used:
+
+    HTTP Status Code: Indicates the success or failure of the request.
+    Response Headers: Provide metadata about the server response.
+    Response Body: The actual content retrieved from the server.
+    Progress Meter: Shows download progress and speed.
+
+---------------------------------------------------------------------------------------
+
 
 
 
