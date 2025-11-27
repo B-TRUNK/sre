@@ -1,0 +1,137 @@
+- Understanding File Permissions and Ownership
+==============================================
+In Unix-like operating systems, file permissions and ownership are crucial for managing access to files and directories.
+
+Each file has an owner, a group, and a set of permissions that determine who can read, write, or execute the file.
+
+- File permissions are represented by a series of characters that indicate  the permissions for the owner, the group, and others. The permissions are:
+
+    r: Read permission
+    w: Write permission
+    x: Execute permission
+    
+
+
+- Numeric Representation of Permissions
+=======================================
+File permissions can also be represented numerically, which is often used in scripts and command-line operations:
+
+    0: No permission
+    1: Execute permission
+    2: Write permission
+    3: Write and execute permissions
+    4: Read permission
+    5: Read and execute permissions
+    6: Read and write permissions
+    7: Read, write, and execute permissions
+
+For example, the numeric permission 755 means the owner can read, write, and execute (7), and the group and others can read and execute (5).
+
+
+- File Ownership
+================
+Each file has an owner and a group associated with it. The owner is typically the user who created the file, and the group is a collection of users who share access to the file.
+
+Commands like chown and chgrp are used to change the ownership and group of a file, respectively.
+Common Commands
+
+Here are some common commands for managing file permissions and ownership:
+
+    chmod: Change file permissions
+    chown: Change file ownership
+    chgrp: Change group ownership
+
+------------------------------------------------------------------------------
+*chmod
+
+command is used to change the file permissions in Unix-like operating systems.
+
+It allows you to set who can read, write, or execute a file.
+
+Syntax
+
+The basic syntax of the chmod command is:
+=========================================
+- chmod [options] mode[,mode] file1 [file2 ...]
+
+
+The chmod command has several options to customize its behavior:
+================================================================
+
+    -R: Change files and directories recursively.
+    -v: Output a diagnostic for every file processed.
+
+-chmod -R 755 /path/to/directory
+
+    changed permissions of 'file1' to 0755
+    changed permissions of 'file2' to 0755
+
+Common Uses
+===========
+-The chmod command is commonly used to:
+
+    Set executable permissions for scripts.
+    Restrict access to sensitive files.
+    Ensure that files have the correct permissions for sharing.
+
+------------------------------------------------------------------------------
+*chown
+
+command is used to change the ownership of files and directories in Unix-like operating systems.
+
+It allows you to set which user and group own a file.
+
+Syntax
+======
+The basic syntax of the chown command is:
+
+- chown [options] user[:group] file1 [file2 ...]
+
+- The chown command has several options to customize its behavior:
+================================================================
+
+    -R: Change files and directories recursively.
+    -v: Output a diagnostic for every file processed.
+
+Common Uses
+===========
+
+The chown command is commonly used to:
+
+    Transfer file ownership to another user.
+    Set group ownership for shared files.
+    Ensure that files have the correct ownership for security purposes.
+
+------------------------------------------------------------------------------
+*chgrp
+
+command is used to change the group ownership of files and directories in Unix-like operating systems. It allows you to set which group owns a file.
+
+Syntax
+======
+The basic syntax of the chgrp command is:
+
+- chgrp [options] group file1 [file2 ...]
+
+-The chgrp command has several options to customize its behavior:
+=================================================================
+
+    -R: Change files and directories recursively.
+    -v: Output a diagnostic for every file processed.
+
+Common Uses
+===========
+The chgrp command is commonly used to:
+
+    Transfer group ownership to another group.
+    Set group ownership for shared files.
+    Ensure that files have the correct group ownership for security purposes.
+
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
