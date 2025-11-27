@@ -117,6 +117,118 @@ The curl command output will vary depending on which options are used:
     Progress Meter: Shows download progress and speed.
 
 ---------------------------------------------------------------------------------------
+*wget
+
+command is used to download files from the web.
+
+It's a powerful tool for downloading single files, entire websites, or even batch downloads.
+
+The wget command has options to change how it works:
+
+    -b - Run in the background
+    -q - Quiet mode (no output)
+    -r - Download directories recursively(batch download)
+    -c - Continue getting a partially-downloaded file
+    --limit-rate - Limit download speed
+
+
+    wget -c http://example.com/largefile.zip
+    wget --limit-rate=200k http://example.com/file.txt
+
+
+- Understanding Wget Output
+
+    The output of the wget command can vary depending on the options used. Here are some common elements:
+
+    Download Progress: Shows the progress of the download.
+    File Size: The size of the file being downloaded.
+    Download Speed: The speed at which the file is being downloaded.
+    Time Remaining: Estimated time remaining for the download to complete.
+
+---------------------------------------------------------------------------------------
+*ssh 
+
+command is used to connect to a remote machine securely.
+
+Here are some common options you can use with the ssh command:
+
+    -p - Specify the port
+    -i - Use a private key file
+    -v - Enable verbose mode
+    -C - Enable compression
+    -X - Enable X11 forwarding
+    -o - Specify options directly on the command line
+
+- Troubleshooting Common Issues
+
+    Common issues like "Connection Refused" or "Host Key Verification Failed" can occur. Here are some steps to troubleshoot these problems:
+
+    Connection Refused: Ensure the SSH service is running on the remote server and the correct port is being used. Check firewall settings to make sure they are not blocking the connection.
+    Host Key Verification Failed: This happens when the server's host key changes. Verify the server's identity and update the known_hosts file by removing the old key entry.
+    Permission Denied: Check permissions and username. Check the server's SSH configuration for restrictions.
+    Timeouts: Check network connectivity and server responsiveness. Adjust the SSH timeout settings if necessary.
+
+---------------------------------------------------------------------------------------
+*scp
+
+command is used to securely copy files between hosts on a network.
+
+    scp file.txt user@example.com:/home/user/
+
+The scp command supports various options to customize its behavior:
+
+    -r - Recursively copy entire directories
+    -P - Specify the port to connect to on the remote host
+    -i - Specify an identity (private key) file
+    -C - Enable compression
+    -v - Enable verbose mode
+    -l - Limit the bandwidth used by the copy
+
+- Understanding SCP Output
+
+    The output of the scp command will vary depending on the options used. Here are some common elements:
+
+    Transfer Progress: Shows progress of the file transfer.
+    File Size: The size of the file being transferred.
+    Transfer Speed: The speed at which the file is being transferred.
+    Time Remaining: Estimated time remaining for the transfer to complete.
+
+---------------------------------------------------------------------------------------
+*rsync
+
+command is used to efficiently transfer and synchronize files across computer systems, by checking the timestamp and size of files.
+
+To synchronize a directory to a remote host, use :
+    sync -avz source user@hostname:/path:
+
+    rsync -avz /local/dir/ user@example.com:/remote/dir/
+
+- The output of the rsync command can vary depending on the options used. Here are some common elements:
+
+    File List: Lists the files being transferred.
+    Transfer Progress: Shows the progress of each file transfer.
+    Compression Ratio: Indicates the effectiveness of compression if used.
+    Speed: The speed at which files are being transferred.
+
+Here are some common options you can use with the rsync command:
+
+    -a - Archive mode
+    -v - Increase verbosity
+    -z - Compress file data
+    --delete - Delete extraneous files
+    -r - Recurse into directories
+    -u - Skip files that are newer on the receiver
+    --progress - Show progress during transfer
+
+- Troubleshooting Common Issues
+
+    Common issues with rsync include "Permission Denied" or "Connection Timeout". Here are some troubleshooting tips:
+
+    Permission Denied: Ensure you have the correct permissions on both the source and destination directories. Check user permissions and SSH key access.
+    Connection Timeout: Verify network connectivity and ensure the remote server is reachable. Check firewall settings and SSH configurations.
+
+---------------------------------------------------------------------------------------
+
 
 
 
