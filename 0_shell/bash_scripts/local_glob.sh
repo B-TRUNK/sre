@@ -1,4 +1,5 @@
-#! /bin/bash
+#!/bin/bash
+
 #Global Variable
 name="GLOBBY!"
 num=20

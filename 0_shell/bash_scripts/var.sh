@@ -1,4 +1,5 @@
-#! /bin/bash
+#!/bin/bash
+
 #Declaring Variables
 name="Abanoub"
 echo "Hello, $name!"

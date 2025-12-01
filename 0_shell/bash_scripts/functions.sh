@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Functions can accept arguments, return values, and use local variables.
 #Here's an example of a function that takes an argument and uses a local variable:
 greet() {
